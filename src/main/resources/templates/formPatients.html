@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow">
+                <div class="card-header text-center bg-primary text-white">
+                    <h4>Formulaire pour ajouter un nouveau patient</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" th:action="@{/save}">
+                        <div class="mb-3">
+                            <label class="form-label">Nom :</label>
+                            <input type="text" class="form-control" name="name" th:value="${patient?.name}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Date de naissance :</label>
+                            <input type="date" class="form-control" name="dateNaissance" th:value="${patient?.dateNaissance}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Score :</label>
+                            <input type="number" class="form-control" name="score" th:value="${patient?.score}" min="0" required>
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" name="malade" id="malade" th:checked="${patient?.malade}">
+                            <label class="form-check-label" for="malade">Malade</label>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Soumettre</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a th:href="@{/index}" class="btn btn-secondary">Retour</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
