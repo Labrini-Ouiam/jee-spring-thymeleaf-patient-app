@@ -15,7 +15,7 @@
                     <h4>Formulaire pour ajouter un nouveau patient</h4>
                 </div>
                 <div class="card-body">
-                    <form method="post" th:action="@{/save}">
+                    <form method="post" th:action="@{/admin/save}">
                         <div class="mb-3">
                             <label class="form-label">Nom :</label>
                             <input type="text" class="form-control" name="name" th:value="${patient?.name}" required>
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="text-center mt-3">
-                <a th:href="@{/index}" class="btn btn-secondary">Retour</a>
+                <a th:href="@{/admin/index}" class="btn btn-secondary">Retour</a>
             </div>
         </div>
     </div>
